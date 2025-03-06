@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+import scrollbarHide from 'tailwind-scrollbar-hide';
+
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
@@ -8,6 +10,15 @@ export default {
         secondary: '#565656',
         background: '#111111',
         backgroundBlue: '#2D4572',
+        gradientFrom: '#4ca5ff',
+        gradientTo: '#b573f8',
+      },
+      fontFamily: {
+        body: ['Merriweather Sans', 'sans-serif'], // Brødtekst
+        button: ['Rubik', 'sans-serif'], // Knappetekst
+        heading: ['Poppins', 'sans-serif'], // Overskrifter
+        ingress: ['Rubik', 'sans-serif'], // Ingress
+        menu: ['Poppins', 'sans-serif'], // Meny
       },
       keyframes: {
         'slide-down': {
@@ -25,5 +36,5 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [scrollbarHide],
 };

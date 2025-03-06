@@ -4,6 +4,7 @@ import React from 'react';
 const ProjectCard = ({
   title,
   description,
+  features,
   borderColor = 'border-purple-500',
   imageSrc,
 }) => {
@@ -16,14 +17,26 @@ const ProjectCard = ({
           <img
             src={imageSrc}
             alt={title}
-            className="w-full h-48 object-cover object-center transform hover:scale-105 transition-transform duration-500"
+            className="w-full max-h-64 object-cover object-center transform hover:scale-105 transition-transform duration-500"
           />
         </div>
       )}
-      <h3 className="text-2xl font-bold mb-4 text-indigo-900">{title}</h3>
-      <p className="mb-6 text-gray-600">{description}</p>
-      <button className="px-5 py-2 bg-indigo-900 text-white font-semibold rounded hover:bg-indigo-800 transition-colors">
-        View
+      <h3 className="text-2xl font-bold font-heading mb-4 text-background">
+        {title}
+      </h3>
+      <p className="mb-6 font-base font-body text-gray-600">{description}</p>
+      <ul className="flex flex-wrap font-base gap-2 mb-6">
+        {features.map((feature, index) => (
+          <li
+            key={index}
+            className="bg-gray-500 text-white px-4 py-2 rounded-md text-sm font-semibold font-body "
+          >
+            {feature}
+          </li>
+        ))}
+      </ul>
+      <button className="px-5 py-2 bg-gradientTo text-white text-base font-semibold font-button rounded-md hover:bg-opacity-60 transition-all transform-200 cursor-pointer">
+        Read more
       </button>
     </div>
   );

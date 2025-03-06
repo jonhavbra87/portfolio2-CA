@@ -1,17 +1,30 @@
 // import NavBar from '../NavBar';
 import React from 'react';
-import Logo from '../../assets/bu_logo.svg';
+import Logo from '../../assets/logo_ja.svg';
+import { Copyright } from 'lucide-react';
 
 function Header() {
+  const ScrollTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
-    <header className="bg-pink-400 w-full flex items-center fixed h-20 mb-20 z-50">
+    <header className="bg-black-100 w-full flex items-center fixed h-20 z-50">
       <div className="w-11/12 lg:w-10/12  mx-auto flex justify-between items-center h-full">
-        <div className="flex items-center">
-          <img src={Logo} alt="Logo" className="h-14" />
+        <div className="flex items-center justify-start ">
+          <img
+            onClick={ScrollTop}
+            src={Logo}
+            alt="Logo"
+            className="h-14 cursor-pointer"
+          />
         </div>
-        <div className="flex flex-row gap-3 items-center">
+        <div className="text-sm">
           {/* <NavBar /> */}
-          <p className="text-black">header</p>
+          <div className="flex flex-row gap-2 items-center text-white">
+            <Copyright />
+            <p>Jon Are Haveråen-Brattås</p>
+          </div>
         </div>
       </div>
     </header>
