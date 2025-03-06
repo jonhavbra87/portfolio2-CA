@@ -1,0 +1,29 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+  theme: {
+    extend: {
+      colors: {
+        primary: '#ff6363',
+        secondary: '#565656',
+        background: '#111111',
+        backgroundBlue: '#2D4572',
+      },
+      keyframes: {
+        'slide-down': {
+          '0%': { transform: 'translateY(-20px)', opacity: '0' },
+          '100%': { transform: 'translateY(0)', opacity: '1' },
+        },
+        'slide-up': {
+          '0%': { transform: 'translateY(0)', opacity: '1' },
+          '100%': { transform: 'translateY(-20px)', opacity: '0' },
+        },
+      },
+      animation: {
+        'slide-down': 'slide-down 0.5s ease-in-out',
+        'slide-up': 'slide-up 0.5s ease-in-out',
+      },
+    },
+  },
+  plugins: [],
+};
