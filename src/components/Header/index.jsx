@@ -9,7 +9,7 @@ function Header() {
   };
 
   return (
-    <header className="bg-black-100 w-full flex items-center fixed h-20 z-50">
+    <header className="bg-background w-full flex items-center fixed h-20 z-50 border-b-2 border-gray-800">
       <div className="w-11/12 lg:w-10/12  mx-auto flex justify-between items-center h-full">
         <div className="flex items-center justify-start ">
           <img

@@ -5,20 +5,13 @@ import { GitBranch, GitFork, Mail } from 'lucide-react';
 
 const AboutMe = () => {
   return (
-    <div className="flex flex-col justify-center h-full p-8 text-white">
+    <div className="flex flex-col justify-center text-white">
       <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold font-heading text-transparent bg-clip-text bg-gradient-to-r from-gradientFrom to-gradientTo">
         Jon Are
       </h1>
       <h2 className="text-xl md:text-2xl text-gray-200 font-medium font-heading mb-16">
         Front End Developer
       </h2>
-      {/* <div className="w-36 h-36 rounded-lg overflow-hidden my-6">
-        <img
-          src={Portrait}
-          alt="Profilbilde"
-          className="w-full h-full object-cover"
-        />
-      </div> */}
 
       <div className="mb-8 text-base font-body text-white">
         <p className="mb-4 ">

@@ -4,9 +4,9 @@ import LandingPage from '../LandingPage';
 
 function Layout() {
   return (
-    <div className="flex flex-col min-h-screen  bg-background">
+    <div className="flex flex-col min-h-screen mb-20 bg-background">
       <Header />
-      <main className="flex-grow mt-20 relative w-11/12 md:w-10/12 mx-auto">
+      <main className="flex-grow relative w-11/12 md:w-10/12 mx-auto">
         <LandingPage />
       </main>
     </div>

@@ -47,7 +47,7 @@ export default function LandingPage() {
 
   return (
     <div>
-      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-gray-50 to-gray-200 -z-10" />
+      <div className="absolute top-0 left-0 w-full h-full bg-background z-0" />
       <Parallax pages={5}>
         <ParallaxLayer
           offset={0}
