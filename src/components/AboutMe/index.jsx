@@ -1,6 +1,7 @@
 // src/components/AboutMe.jsx
 import React from 'react';
 import Portrait from '../../assets/jon_are.webp';
+import illustration from '../../assets/laptop.webp';
 import { GitBranch, GitFork, Mail } from 'lucide-react';
 
 const AboutMe = () => {
@@ -12,44 +13,32 @@ const AboutMe = () => {
       <h2 className="text-xl md:text-2xl text-gray-200 font-medium font-heading mb-16">
         Front End Developer
       </h2>
+      {/* Content Wrapper */}
+      <div className="flex flex-col md:flex-row items-center justify-between gap-12">
+        {/* Left Column - Text */}
+        <div className="md:w-2/3 lg:w-1/2 text-base text-left font-body text-white">
+          <p className="mb-4">
+            My name is <span className="font-bold">Jon Are</span>, a passionate and dedicated front-end development student at Noroff.
+            Specializing in the creative use of React, Javascript, and TypeScript, I'm deeply committed to building functional and aesthetically pleasing websites.
+          </p>
+          <p className="mb-4">
+            As an online learner, I've developed a strong self-driven work ethic and a flexible approach to{' '}
+            <span className="font-bold">problem-solving.</span> My projects showcase a blend of modern design principles and{' '}
+            <span className="font-bold">efficient</span> coding practices.
+          </p>
+          <p>
+            My portfolio is a testament to my journey in front-end development, featuring projects that transform ideas into digital realities.
+          </p>
+        </div>
 
-      <div className="mb-8 text-base font-body text-white">
-        <p className="mb-4 ">
-          My name is <span className="font-bold">Jon Are</span> a passionate and
-          dedicated front-end development student at Noroff. Specializing in the
-          creative use of React, Javascript and TypeScript, I'm deeply committed
-          to building not just functional, but also aesthetically pleasing
-          websites. My journey in the digital realm is fueled by a keen desire
-          to stay abreast of the latest trends and techniques in front-end
-          development.
-        </p>
-        <p className="mb-4 text-base ">
-          As an online learner, I've developed a strong self-driven work ethic
-          and a flexible approach to{' '}
-          <span className="font-bold">problem-solving.</span> My projects
-          showcase a blend of{' '}
-          <span className="font-bold">modern design principles</span> and
-          <span className="font-bold">efficient</span> coding practices. I
-          believe in crafting websites that are not only visually stunning but
-          also
-          <span className="font-bold">user-friendly</span>, ensuring a seamless
-          experience for all users.
-        </p>
-        <p className="text-base">
-          My portfolio is a testament to my journey in front-end development,
-          featuring projects that highlight my ability to transform ideas into
-          digital realities. Each project is a step forward in my continuous
-          quest for knowledge and excellence in the field of web development. I
-          am eager to collaborate, learn, and grow as I embark on new challenges
-          and opportunities in the dynamic world of front-end development.
-        </p>
-        <p className="mt-8 text-3xl font-ingress text-transparent bg-clip-text bg-gradient-to-r from-gradientFrom to-gradientTo">
-          <span className="italic">
-            Let's create something amazing together!
-          </span>
-        </p>
+        {/* Right Column - Illustration */}
+        <div className="md:w-1/3 lg:w-1/3">
+          <img src={illustration} alt="Illustration of a laptop" className="w-full object-cover rounded-lg shadow-lg" />
+        </div>
       </div>
-
+          <p className="my-8 text-3xl font-ingress font-bold text-transparent bg-clip-text bg-gradient-to-r from-gradientFrom to-gradientTo italic">
+            Let's create something amazing together!
+          </p>
       <div className="flex justify-center align-middle">
         <div className="flex flex-col align-middle gap-4 font-body text-sm font-extrabold">
           <div className="flex flex-row gap-2 items-center">
