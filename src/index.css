@@ -10,10 +10,6 @@ body,
   overflow-x: hidden; /* Prevent horizontal scrolling */
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* Internet Explorer and Edge */
-  overflow-x: hidden; /* Hindrer horisontal scrolling */
-  overflow-y: scroll; /* Tillater vertikal scrolling */
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE og Edge */
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
@@ -32,8 +28,12 @@ body {
     Roboto,
     sans-serif;
   margin: 0;
+  padding: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(
+    --background-color
+  ); /* Sørger for riktig bakgrunnsfarge */
 }
 
 /* Fix warning about text adjustment */
@@ -49,10 +49,19 @@ html {
   box-sizing: border-box;
 }
 
-/* Ensure parallax works properly */
+/* Touch device optimizations for parallax */
+@media (hover: none) {
+  .parallax-container {
+    transform: none !important;
+  }
+}
+
+/* Ensure parallax works properly on all devices */
 #root {
-  overflow-y: scroll; /* Allow vertical scrolling */
-  overflow-x: hidden; /* Prevent horizontal scrolling */
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* Internet Explorer and Edge */
+  overflow-y: auto; /* Endret fra 'scroll' til 'auto' for bedre mobil-ytelse */
+  overflow-x: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  position: relative;
+  height: 100%;
 }

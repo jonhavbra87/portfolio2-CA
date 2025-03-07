@@ -1,18 +1,39 @@
 import { Parallax, ParallaxLayer } from '@react-spring/parallax';
 import Portrait from '../../assets/jon_are.webp';
-import * as React from 'react';
+import React, { useState, useEffect } from 'react';
 import AboutMe from '../AboutMe';
 import ProjectCard from '../ProjectCard';
 import ContactForm from '../ContactForm';
 import { GitFork, Mail } from 'lucide-react';
 
 export default function LandingPage() {
+  // State for å holde styr på om enheten er mobil
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Sjekk skjermstørrelsen når komponenten lastes og når vinduet endres
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768); // Under 768px regnes som mobil
+    };
+    
+    // Sjekk når komponenten lastes
+    checkMobile();
+    
+    // Legg til en event listener for å sjekke når vinduet endrer størrelse
+    window.addEventListener('resize', checkMobile);
+    
+    // Cleanup
+    return () => {
+      window.removeEventListener('resize', checkMobile);
+    };
+  }, []);
+
   const projects = [
     {
       id: 1,
       title: 'Project Exam 2',
       description:
-        'To take the skills learned over the last two years and take on an extensive project where the finished product should reflect the candidate’s general development capabilities, in addition to visual and technical skills.',
+        'To take the skills learned over the last two years and take on an extensive project where the finished product should reflect the candidate´s general development capabilities, in addition to visual and technical skills.',
       features: ['React', 'TypeScript', 'Tailwind CSS'],
       borderColor: 'border-purple-500',
       offset: 1.5,
@@ -45,56 +66,104 @@ export default function LandingPage() {
 
   const alignCenter = { display: 'flex', alignItems: 'center' };
 
-  return (
+  // Mobil-versjon av siden
+  const MobileView = () => (
+    <div className="w-full bg-background min-h-screen pt-20">
+      {/* AboutMe section */}
+      <div className="px-4 py-8 text-center">
+        <AboutMe />
+      </div>
+      
+      {/* Projects section */}
+      <div className="px-4 py-8">
+        <h2 className="text-2xl font-bold text-white mb-8 text-center">My Projects</h2>
+        <div className="space-y-16">
+          {projects.map((project) => (
+            <ProjectCard
+              key={project.id}
+              title={project.title}
+              description={project.description}
+              features={project.features}
+              borderColor={project.borderColor}
+              imageSrc={project.imageSrc}
+            />
+          ))}
+        </div>
+      </div>
+      
+      {/* Contact section */}
+      <div className="px-4 py-8 pb-20">
+        <div className="bg-background text-white rounded-lg p-6 shadow-xl text-center">
+          <h2 className="text-2xl font-bold mb-6 text-gray-500">
+            Contact Me
+          </h2>
+          <ContactForm />
+        </div>
+      </div>
+    </div>
+  );
+
+  // Desktop-versjon med parallax
+  const DesktopView = () => (
     <div>
       <div className="absolute top-0 left-0 w-full h-full bg-background z-0" />
       <Parallax pages={5}>
+        {/* AboutMe section */}
         <ParallaxLayer
           offset={0}
           speed={0.5}
           style={{ ...alignCenter, justifyContent: 'center' }}
         >
-          <div className="flex flex-col items-center justify-center text-center h-screen w-11/12 lg:w-10/12 max-w-7xl">
-            <AboutMe />
+          <div className="w-full max-w-7xl mx-auto px-8">
+            <div className="flex flex-col items-center justify-center text-center min-h-screen">
+              <AboutMe />
+            </div>
           </div>
         </ParallaxLayer>
 
+        {/* Profile sidebar */}
         <ParallaxLayer
           sticky={{ start: 1, end: 3 }}
-          style={{ ...alignCenter, justifyContent: 'flex-start' }}
+          style={{ ...alignCenter, justifyContent: 'center' }}
         >
-          <div className="hidden md:block w-2/5 max-w-md mr-8 flex-shrink-0">
-            <div className="bg-background rounded-lg p-8 shadow-xl overflow-y-auto max-h-[90vh]">
-              <div className="flex flex-col items-center">
-                <img
-                  src={Portrait || 'https://placehold.co/400'}
-                  alt="Jon Are"
-                  className="w-40 h-40 rounded-lg object-cover mb-6 border-4 border-white shadow-lg"
-                />
-                <h1 className="text-4xl font-extrabold mb-4 text-white">
-                  Jon Are
-                </h1>
-                <p className="text-transparent bg-clip-text bg-gradient-to-r from-gradientFrom to-gradientTo font-medium text-xl italic mb-6">
-                  Let's create something amazing together!
-                </p>
-                <div className="flex flex-col align-middle gap-4 font-body text-sm font-extrabold text-white">
-                  <div className="flex flex-row gap-2 items-center">
-                    <Mail className="text-gradientTo" />
-                    <a
-                      href="mailto:kontakt@brattaasutvikling.no"
-                      className="underline hover:text-gradientTo"
-                    >
-                      kontakt@brattaasutvikling.no
-                    </a>
-                  </div>
-                  <div className="flex flex-row gap-2 items-center">
-                    <GitFork className="text-gradientTo" />
-                    <a
-                      href="https://github.com/jonhavbra87"
-                      className="underline hover:text-gradientFrom"
-                    >
-                      github.com/jonhavbra87
-                    </a>
+          <div className="w-full max-w-7xl mx-auto px-8">
+            <div className="grid grid-cols-12 gap-8">
+              <div className="col-span-4 lg:col-span-4 xl:col-span-5">
+                <div className="w-full max-w-xs">
+                  <div className="bg-background rounded-lg p-5 lg:p-6 shadow-xl overflow-y-auto max-h-[90vh]">
+                    <div className="flex flex-col items-center">
+                      <img
+                        src={Portrait || 'https://placehold.co/400'}
+                        alt="Jon Are"
+                        className="w-28 h-28 lg:w-32 lg:h-32 rounded-lg object-cover mb-4 border-4 border-white shadow-lg"
+                      />
+                      <h1 className="text-2xl lg:text-3xl font-extrabold mb-3 text-white">
+                        Jon Are
+                      </h1>
+                      <p className="text-transparent bg-clip-text bg-gradient-to-r from-gradientFrom to-gradientTo font-medium text-base lg:text-lg italic mb-4">
+                        Let's create something amazing together!
+                      </p>
+                      <div className="flex flex-col align-middle gap-3 font-body text-xs font-extrabold text-white">
+                        <div className="flex flex-row gap-2 items-center">
+                          <Mail className="text-gradientTo w-4 h-4" />
+                          <a
+                            href="mailto:kontakt@brattaasutvikling.no"
+                            className="underline hover:text-gradientTo text-sm"
+                          >
+                            kontakt@brattaasutvikling.no
+                          </a>
+                        </div>
+                        <div className="flex flex-row gap-2 items-center">
+                          <GitFork className="text-gradientTo w-4 h-4" />
+                          <a
+                            href="https://github.com/jonhavbra87"
+                            className="underline hover:text-gradientFrom text-sm"
+                          >
+                            github.com/jonhavbra87
+                          </a>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -102,6 +171,7 @@ export default function LandingPage() {
           </div>
         </ParallaxLayer>
 
+        {/* Project cards */}
         {projects.map((project) => (
           <ParallaxLayer
             key={project.id}
@@ -109,34 +179,49 @@ export default function LandingPage() {
             speed={1.5}
             style={{
               ...alignCenter,
-              justifyContent: 'flex-end',
-              marginLeft: 'md:calc(20% + 2rem)',
+              justifyContent: 'center',
             }}
           >
-            <div className="w-11/12 md:w-3/5 max-w-xl">
-              <ProjectCard
-                title={project.title}
-                description={project.description}
-                features={project.features}
-                borderColor={project.borderColor}
-                imageSrc={project.imageSrc}
-              />
+            <div className="w-full max-w-7xl mx-auto px-8">
+              <div className="grid grid-cols-12 gap-8">
+                {/* Tom kolonne, samme bredde som sidebar */}
+                <div className="col-span-4 lg:col-span-4 xl:col-span-5"></div>
+                <div className="col-span-8 lg:col-span-8 xl:col-span-7">
+                  <div className="w-full max-w-lg lg:max-w-xl">
+                    <ProjectCard
+                      title={project.title}
+                      description={project.description}
+                      features={project.features}
+                      borderColor={project.borderColor}
+                      imageSrc={project.imageSrc}
+                    />
+                  </div>
+                </div>
+              </div>
             </div>
           </ParallaxLayer>
         ))}
+
+        {/* Contact section */}
         <ParallaxLayer
           offset={4}
           speed={0.5}
           style={{ ...alignCenter, justifyContent: 'center' }}
+          className="pb-20"
         >
-          <div className="w-5/6 max-w-3xl bg-backgroun text-white rounded-lg p-8 md:p-12 shadow-xl text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-gray-500">
-              Contact Me
-            </h2>
-            <ContactForm />
+          <div className="w-full max-w-7xl mx-auto px-8">
+            <div className="max-w-3xl mx-auto bg-background text-white rounded-lg p-8 shadow-xl text-center">
+              <h2 className="text-3xl font-bold mb-8 text-gray-500">
+                Contact Me
+              </h2>
+              <ContactForm />
+            </div>
           </div>
         </ParallaxLayer>
       </Parallax>
     </div>
   );
+
+  // Bruk ternary operator for å velge mellom mobil- og desktop-visning
+  return isMobile ? <MobileView /> : <DesktopView />;
 }
