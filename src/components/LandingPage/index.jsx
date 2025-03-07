@@ -135,12 +135,12 @@ export default function LandingPage() {
                       <img
                         src={Portrait || 'https://placehold.co/400'}
                         alt="Jon Are"
-                        className="w-28 h-28 lg:w-32 lg:h-32 rounded-lg object-cover mb-4 border-4 border-white shadow-lg"
+                        className="w-full rounded-lg object-cover mb-4 shadow-lg"
                       />
                       <h1 className="text-2xl lg:text-3xl font-extrabold mb-3 text-white">
                         Jon Are
                       </h1>
-                      <p className="text-transparent bg-clip-text bg-gradient-to-r from-gradientFrom to-gradientTo font-medium text-base lg:text-lg italic mb-4">
+                      <p className="text-transparent bg-clip-text bg-gradient-to-r from-gradientFrom to-gradientTo font-semibold font-ingress text-center text-base lg:text-lg italic mb-4">
                         Let's create something amazing together!
                       </p>
                       <div className="flex flex-col align-middle gap-3 font-body text-xs font-extrabold text-white">
@@ -148,7 +148,7 @@ export default function LandingPage() {
                           <Mail className="text-gradientTo w-4 h-4" />
                           <a
                             href="mailto:kontakt@brattaasutvikling.no"
-                            className="underline hover:text-gradientTo text-sm"
+                            className="font-body underline hover:text-gradientTo text-sm"
                           >
                             kontakt@brattaasutvikling.no
                           </a>
@@ -157,7 +157,7 @@ export default function LandingPage() {
                           <GitFork className="text-gradientTo w-4 h-4" />
                           <a
                             href="https://github.com/jonhavbra87"
-                            className="underline hover:text-gradientFrom text-sm"
+                            className="font-body underline hover:text-gradientFrom text-sm"
                           >
                             github.com/jonhavbra87
                           </a>
@@ -211,7 +211,7 @@ export default function LandingPage() {
         >
           <div className="w-full max-w-7xl mx-auto px-8">
             <div className="max-w-3xl mx-auto bg-background text-white rounded-lg p-8 shadow-xl text-center">
-              <h2 className="text-3xl font-bold mb-8 text-gray-500">
+              <h2 className="text-3xl font-bold font-heading mb-8 text-gray-300">
                 Contact Me
               </h2>
               <ContactForm />

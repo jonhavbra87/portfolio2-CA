@@ -24,7 +24,7 @@ const ContactForm = () => {
       <div className="mb-6">
         <label
           htmlFor="name"
-          className="block mb-2 font-medium text-gray-300 text-left"
+          className="block mb-2 font-medium font-ingress text-gray-300 text-left"
         >
           Name
         </label>
@@ -34,14 +34,14 @@ const ContactForm = () => {
           name="name"
           value={formData.name}
           onChange={handleChange}
-          className="w-full p-3 border border-gray-300 rounded focus:border-indigo-900 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 text-background"
+          className="w-full font-body p-3 border border-gray-300 rounded focus:border-indigo-900 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 text-background"
           required
         />
       </div>
       <div className="mb-6">
         <label
           htmlFor="email"
-          className="block mb-2 font-medium text-gray-300 text-left"
+          className="block mb-2 font-medium font-ingress text-gray-300 text-left"
         >
           E-mail
         </label>
@@ -51,14 +51,14 @@ const ContactForm = () => {
           name="email"
           value={formData.email}
           onChange={handleChange}
-          className="w-full p-3 border border-gray-300 rounded focus:border-indigo-900 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 text-background"
+          className="w-full font-body p-3 border border-gray-300 rounded focus:border-indigo-900 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 text-background"
           required
         />
       </div>
       <div className="mb-6">
         <label
           htmlFor="message"
-          className="block mb-2 font-medium text-gray-300 text-left"
+          className="block mb-2 font-medium font-ingress text-gray-300 text-left"
         >
           Message
         </label>
@@ -67,14 +67,14 @@ const ContactForm = () => {
           name="message"
           value={formData.message}
           onChange={handleChange}
-          className="w-full p-3 border border-gray-300 rounded resize-y min-h-[120px] focus:border-indigo-900 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 text-background"
+          className="w-full font-body p-3 border border-gray-300 rounded resize-y min-h-[120px] focus:border-indigo-900 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 text-background"
           rows="5"
           required
         ></textarea>
       </div>
       <button
         type="submit"
-        className="inline-block px-8 py-3 bg-gradient-to-tr from-gradientFrom to-gradientTo text-background font-semibold rounded hover:brightness-75 ransition-colors transform duration-300"
+        className="inline-block px-8 py-3 bg-gradient-to-tr from-gradientFrom to-gradientTo text-background font-semibold font-button rounded hover:brightness-75 ransition-colors transform duration-300"
       >
         Send Message
       </button>

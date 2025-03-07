@@ -8,7 +8,7 @@ export default {
       colors: {
         primary: '#ff6363',
         secondary: '#565656',
-        background: '#111111',
+        background: '#000000',
         backgroundBlue: '#2D4572',
         gradientFrom: '#4ca5ff',
         gradientTo: '#b573f8',
