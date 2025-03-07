@@ -2,11 +2,11 @@
 import React from 'react';
 import Portrait from '../../assets/jon_are.webp';
 import illustration from '../../assets/laptop.webp';
-import { GitBranch, GitFork, Mail } from 'lucide-react';
+import { GitFork, Mail } from 'lucide-react';
 
 const AboutMe = () => {
   return (
-    <div className="flex flex-col justify-center text-white">
+    <div className="flex flex-col justify-center text-white md:mt-20 min-h-screen">
       <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold font-heading text-transparent bg-clip-text bg-gradient-to-r from-gradientFrom to-gradientTo">
         Jon Are
       </h1>
@@ -14,7 +14,7 @@ const AboutMe = () => {
         Front End Developer
       </h2>
       {/* Content Wrapper */}
-      <div className="flex flex-col md:flex-row items-center justify-between gap-12">
+      <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-12">
         {/* Left Column - Text */}
         <div className="md:w-2/3 lg:w-1/2 text-base text-left font-body text-white">
           <p className="mb-4">
@@ -32,11 +32,11 @@ const AboutMe = () => {
         </div>
 
         {/* Right Column - Illustration */}
-        <div className="md:w-1/3 lg:w-1/3">
+        <div className="md:w-1/3 lg:w-1/2">
           <img src={illustration} alt="Illustration of a laptop" className="w-full object-cover rounded-lg shadow-lg" />
         </div>
       </div>
-          <p className="my-8 text-3xl font-ingress font-bold text-transparent bg-clip-text bg-gradient-to-r from-gradientFrom to-gradientTo italic">
+          <p className="my-8 md:my-16 text-3xl font-ingress font-bold text-transparent bg-clip-text bg-gradient-to-r from-gradientFrom to-gradientTo italic">
             Let's create something amazing together!
           </p>
       <div className="flex justify-center align-middle">

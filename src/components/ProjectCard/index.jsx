@@ -1,4 +1,5 @@
 import React from 'react';
+import { ExternalLink, GitForkIcon, Github } from 'lucide-react';
 
 const ProjectCard = ({
   title,
@@ -9,7 +10,7 @@ const ProjectCard = ({
 }) => {
   return (
     <div
-      className={`w-full bg-white rounded-lg shadow-lg transition-transform duration-300 hover:-translate-y-2 border-t-4 ${borderColor} overflow-hidden`}
+      className={`w-full bg-background rounded-lg shadow-lg transition-transform duration-300 hover:-translate-y-2 border-l-4 ${borderColor} overflow-hidden`}
     >
       {imageSrc && (
         <div className="mb-4 overflow-hidden">
@@ -21,10 +22,10 @@ const ProjectCard = ({
         </div>
       )}
       <div className="p-4 sm:p-6 lg:p-8">
-        <h3 className="text-xl sm:text-2xl font-bold font-heading mb-3 md:mb-4 text-background">
+        <h3 className="text-xl sm:text-2xl font-bold font-heading mb-3 md:mb-4 text-white">
           {title}
         </h3>
-        <p className="mb-4 md:mb-6 font-base font-body text-gray-600 text-base">{description}</p>
+        <p className="mb-4 md:mb-6 font-base font-body text-gray-200 text-base">{description}</p>
         <div className="flex flex-wrap gap-2 mb-4 md:mb-6">
           {features.map((feature, index) => (
             <span
@@ -35,9 +36,6 @@ const ProjectCard = ({
             </span>
           ))}
         </div>
-        <button className="w-1/2 sm:w-auto px-4 py-3 bg-gradientTo text-white text-base font-bold font-button rounded-md hover:bg-opacity-60 transition-all duration-200 cursor-pointer">
-          Read more
-        </button>
       </div>
     </div>
   );

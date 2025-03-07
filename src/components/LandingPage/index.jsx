@@ -1,10 +1,12 @@
+
+// LandingPage.jsx - Oppdatert versjon med dedikerte lenker
 import { Parallax, ParallaxLayer } from '@react-spring/parallax';
 import Portrait from '../../assets/jon_are.webp';
 import React, { useState, useEffect } from 'react';
 import AboutMe from '../AboutMe';
 import ProjectCard from '../ProjectCard';
 import ContactForm from '../ContactForm';
-import { GitFork, Mail } from 'lucide-react';
+import { GitFork, Mail, ExternalLink, Github } from 'lucide-react';
 
 export default function LandingPage() {
   // State for å holde styr på om enheten er mobil
@@ -39,6 +41,8 @@ export default function LandingPage() {
       offset: 1.5,
       imageSrc:
         'https://camo.githubusercontent.com/756c66db51d4e5e837abec339b7a57970950b11a5f72cdd93905f08e9947401f/68747470733a2f2f692e706f7374696d672e63632f7978387762544c382f5045322d636f7665722e6a7067',
+      liveLink: 'https://pe2-jahb.netlify.app/',
+      githubLink: 'https://github.com/jonhavbra87/project_exam_2',
     },
     {
       id: 2,
@@ -50,6 +54,8 @@ export default function LandingPage() {
       offset: 2.5,
       imageSrc:
         'https://camo.githubusercontent.com/27fe122f866308d1bccdb5afaf7cde00421bf431221d1f240e431430dd483fbc/68747470733a2f2f692e706f7374696d672e63632f634c52596447505a2f61756374696f6e68616f7573652e706e67',
+      liveLink: 'https://sp2-jahb.netlify.app/',
+      githubLink: 'https://github.com/jonhavbra87/SP2',
     },
     {
       id: 3,
@@ -61,10 +67,12 @@ export default function LandingPage() {
       offset: 3.2,
       imageSrc:
         'https://github.com/jonhavbra87/css-frameworks-ca/raw/main/content/JS2.webp',
+      liveLink: 'https://js2-jahb.netlify.app/',
+      githubLink: 'https://github.com/jonhavbra87/css-frameworks-ca',
     },
   ];
 
-  const alignCenter = { display: 'flex', alignItems: 'center' };
+  const alignCenter = { display: 'flex', alignItems: 'center'};
 
   // Mobil-versjon av siden
   const MobileView = () => (
@@ -79,14 +87,35 @@ export default function LandingPage() {
         <h2 className="text-2xl font-bold text-white mb-8 text-center">My Projects</h2>
         <div className="space-y-16">
           {projects.map((project) => (
-            <ProjectCard
-              key={project.id}
-              title={project.title}
-              description={project.description}
-              features={project.features}
-              borderColor={project.borderColor}
-              imageSrc={project.imageSrc}
-            />
+            <div key={project.id} className="relative">
+              <ProjectCard
+                title={project.title}
+                description={project.description}
+                features={project.features}
+                borderColor={project.borderColor}
+                imageSrc={project.imageSrc}
+              />
+              
+              {/* Legg til lenkene under kortet på mobil */}
+              <div className="mt-4 flex flex-col sm:flex-row gap-4">
+                <a
+                  href={project.liveLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-1/3 sm:w-auto px-4 py-3 bg-gradientTo text-white text-base font-bold font-button rounded-md hover:bg-opacity-60 transition-all duration-200 text-center"
+                >
+                  Live Demo
+                </a>
+                <a
+                  href={project.githubLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-1/3 sm:w-auto px-4 py-3 bg-gradientTo text-white text-base font-bold font-button rounded-md hover:bg-opacity-60 transition-all duration-200 text-center"
+                >
+                  GitHub
+                </a>
+              </div>
+            </div>
           ))}
         </div>
       </div>
@@ -103,7 +132,6 @@ export default function LandingPage() {
     </div>
   );
 
-  // Desktop-versjon med parallax
   const DesktopView = () => (
     <div>
       <div className="absolute top-0 left-0 w-full h-full bg-background z-0" />
@@ -112,7 +140,7 @@ export default function LandingPage() {
         <ParallaxLayer
           offset={0}
           speed={0.5}
-          style={{ ...alignCenter, justifyContent: 'center' }}
+          style={{ ...alignCenter, justifyContent: 'center'}}
         >
           <div className="w-full max-w-7xl mx-auto px-8">
             <div className="flex flex-col items-center justify-center text-center min-h-screen">
@@ -135,20 +163,22 @@ export default function LandingPage() {
                       <img
                         src={Portrait || 'https://placehold.co/400'}
                         alt="Jon Are"
-                        className="w-28 h-28 lg:w-32 lg:h-32 rounded-lg object-cover mb-4 border-4 border-white shadow-lg"
+                        className="w-full rounded-lg object-cover mb-4 shadow-lg"
                       />
                       <h1 className="text-2xl lg:text-3xl font-extrabold mb-3 text-white">
                         Jon Are
                       </h1>
-                      <p className="text-transparent bg-clip-text bg-gradient-to-r from-gradientFrom to-gradientTo font-medium text-base lg:text-lg italic mb-4">
+                      <p className="text-transparent bg-clip-text bg-gradient-to-r from-gradientFrom to-gradientTo font-semibold font-ingress text-center text-base lg:text-lg italic mb-4">
                         Let's create something amazing together!
                       </p>
-                      <div className="flex flex-col align-middle gap-3 font-body text-xs font-extrabold text-white">
+                      
+                      {/* Kontakt lenker */}
+                      <div className="flex flex-col align-middle gap-3 font-body text-xs font-extrabold text-white mb-6">
                         <div className="flex flex-row gap-2 items-center">
                           <Mail className="text-gradientTo w-4 h-4" />
                           <a
                             href="mailto:kontakt@brattaasutvikling.no"
-                            className="underline hover:text-gradientTo text-sm"
+                            className="font-body underline hover:text-gradientTo text-sm"
                           >
                             kontakt@brattaasutvikling.no
                           </a>
@@ -157,10 +187,42 @@ export default function LandingPage() {
                           <GitFork className="text-gradientTo w-4 h-4" />
                           <a
                             href="https://github.com/jonhavbra87"
-                            className="underline hover:text-gradientFrom text-sm"
+                            className="font-body underline hover:text-gradientFrom text-sm"
                           >
                             github.com/jonhavbra87
                           </a>
+                        </div>
+                      </div>
+                      
+                      {/* Prosjekt lenker */}
+                      <div className="w-full">
+                        <h2 className="text-white text-lg font-bold mb-3 border-b border-gray-700 pb-2">Prosjekter</h2>
+                        <div className="flex flex-col gap-6">
+                          {projects.map((project) => (
+                            <div key={project.id} className="flex flex-col gap-2">
+                              <h3 className="text-white text-sm font-bold">{project.title}</h3>
+                              <div className="flex flex-col gap-2 pl-2">
+                                <a
+                                  href={project.liveLink}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="flex items-center gap-2 text-white hover:text-gradientTo text-xs"
+                                >
+                                  <ExternalLink className="text-gradientTo w-3 h-3" />
+                                  <span className="underline">Live Demo</span>
+                                </a>
+                                <a
+                                  href={project.githubLink}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="flex items-center gap-2 text-white hover:text-gradientTo text-xs"
+                                >
+                                  <Github className="text-gradientTo w-3 h-3" />
+                                  <span className="underline">GitHub Repository</span>
+                                </a>
+                              </div>
+                            </div>
+                          ))}
                         </div>
                       </div>
                     </div>
@@ -184,7 +246,6 @@ export default function LandingPage() {
           >
             <div className="w-full max-w-7xl mx-auto px-8">
               <div className="grid grid-cols-12 gap-8">
-                {/* Tom kolonne, samme bredde som sidebar */}
                 <div className="col-span-4 lg:col-span-4 xl:col-span-5"></div>
                 <div className="col-span-8 lg:col-span-8 xl:col-span-7">
                   <div className="w-full max-w-lg lg:max-w-xl">
@@ -211,7 +272,7 @@ export default function LandingPage() {
         >
           <div className="w-full max-w-7xl mx-auto px-8">
             <div className="max-w-3xl mx-auto bg-background text-white rounded-lg p-8 shadow-xl text-center">
-              <h2 className="text-3xl font-bold mb-8 text-gray-500">
+              <h2 className="text-3xl font-bold font-heading mb-8 text-gray-300">
                 Contact Me
               </h2>
               <ContactForm />
