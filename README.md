@@ -22,8 +22,6 @@ This portfolio showcases my frontend development skills and projects created dur
 
 A comprehensive accommodation booking platform that allows users to browse venues, make bookings, and venue managers to create and manage their listings.
 
-## 🚀 **Technologies Used**
-
 - **REACT** and **TypeScript** for the front-end development.
 - **Tailwind** for responsive design and UI components.
 - **Yup** & **React-Hook-Form** for validation.
