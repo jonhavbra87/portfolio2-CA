@@ -32,31 +32,23 @@ A comprehensive accommodation booking platform that allows users to browse venue
 - **API**: The site interacts with the [Noroff Holidaze API](https://docs.noroff.dev/docs/v2) to manage items data.
 
 ### Semester Project 2
+The objective of this project is to apply the front-end development skills acquired over the past three semesters by building an auction website. The website will allow users to bid on items, as well as create and manage their own listings.
 
-- **REACT** and **TypeScript** for the front-end development.
-- **Tailwind** for responsive design and UI components.
-- **Yup** & **React-Hook-Form** for validation.
-- **Zustand** for storing login & registration information.
+- **HTML5**, **SCSS**, and **JavaScript** for the front-end development.
+- **Bootstrap** for responsive design and UI components.
 - **Vite** as the build tool and development server for fast module-based development.
-- **API**: The site interacts with the [Noroff Holidaze API](https://docs.noroff.dev/docs/v2) to manage items data.
+- **Figma** for design and prototyping
+- **API**: The site interacts with the [Noroff Auction API](https://docs.noroff.dev/docs/v2) to manage listing data and bids.
+- **Jest** for unit testing.
 
 ### Javascript Frameworks CA
+To apply knowledge of JavaScript techniques to implement the front-end functionality for a social media application.
 
-- **REACT** and **TypeScript** for the front-end development.
-- **Tailwind** for responsive design and UI components.
-- **Yup** & **React-Hook-Form** for validation.
-- **Zustand** for storing login & registration information.
-- **Vite** as the build tool and development server for fast module-based development.
-- **API**: The site interacts with the [Noroff Holidaze API](https://docs.noroff.dev/docs/v2) to manage items data.
-
----
-
-## 💡 Design & Planning
-
-- **Design Prototype:** [Figma design](https://www.figma.com/design/GP9xbG1mBt0ZkxqO8CucVM/PE2?node-id=1-4738&t=5zobQLobQWHfJSsq-1)
-- **Style Guide:** [Figma Style Guide](https://www.figma.com/design/GP9xbG1mBt0ZkxqO8CucVM/PE2?node-id=1-4610&t=5zobQLobQWHfJSsq-1)
-- **Gannt Chart:** [Notions Gannt Chart](https://bright-whale-c2f.notion.site/1731226a005c80fcaa4afdf5261031cf?v=1741226a005c80109812000c6a9afd15)
-- **Kanban Board:** [Kanban Board](https://trello.com/invite/b/677cfead4127288a9e1f8212/ATTId98fa4f85d2e4b12e58986c2dd1cf3f16322CEAC/project-exam-2)
+- **HTML**, **CSS** & **JavaScript** for the front-end development.
+- **Bootstrap** for responsive design and UI components.
+- **HTML** & **Regex** for validation.
+- **LocalStorage** for storing login & registration information.
+- **API**: The site interacts with the [Noroff Holidaze API](https://docs.noroff.dev/docs/v1) to manage items data.
 
 ---
 
@@ -92,7 +84,7 @@ This is a Noroff Courtse Assignemt for my portfolio. I appreciate a peer review 
 
 ## Contact
 
-<p align="center">
+<p align="start">
   <a href="https://no.linkedin.com/in/jon-are-haver%C3%A5en-bratt%C3%A5s-5a3805262?trk=people-guest_people_search-card">
     <img src="https://raw.githubusercontent.com/tandpfun/skill-icons/65dea6c4eaca7da319e552c09f4cf5a9a8dab2c8/icons/LinkedIn.svg" width="50" > 
   </a>
