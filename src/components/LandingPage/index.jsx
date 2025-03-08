@@ -191,7 +191,7 @@ export default function LandingPage() {
                     <div className="flex flex-col items-center">
                       <img
                         src={Portrait || 'https://placehold.co/400'}
-                        alt="Jon Are"
+                        alt="Image of Jon Are"
                         className="w-full rounded-md object-cover mb-4 shadow-lg"
                       />
                       <h1 className="text-2xl lg:text-3xl font-extrabold mb-3 text-white">

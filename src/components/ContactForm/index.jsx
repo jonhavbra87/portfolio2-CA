@@ -59,7 +59,7 @@ const ContactForm = () => {
           required
           aria-required="true"
           aria-invalid={formData.name === ''}
-          aria-describedby="name-error"
+          {...(formStatus.submitted && formData.name === '' ? {'aria-describedby': 'name-error'} : {})}
         />
         {formStatus.submitted && formData.name === '' && (
           <p id="name-error" className="text-red-500 mt-1">Name is required</p>
@@ -83,7 +83,7 @@ const ContactForm = () => {
           required
           aria-required="true"
           aria-invalid={formData.email === ''}
-          aria-describedby="email-error"
+          {...(formStatus.submitted && formData.email === '' ? {'aria-describedby': 'email-error'} : {})}
         />
         {formStatus.submitted && formData.email === '' && (
           <p id="email-error" className="text-red-500 mt-1">Email is required</p>
@@ -107,7 +107,7 @@ const ContactForm = () => {
           required
           aria-required="true"
           aria-invalid={formData.message === ''}
-          aria-describedby="message-error"
+          {...(formStatus.submitted && formData.message === '' ? {'aria-describedby': 'message-error'} : {})}
         ></textarea>
         {formStatus.submitted && formData.message === '' && (
           <p id="message-error" className="text-red-500 mt-1">Message is required</p>
