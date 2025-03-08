@@ -6,7 +6,7 @@ import { GitFork, Mail } from 'lucide-react';
 
 const AboutMe = () => {
   return (
-    <div className="flex flex-col justify-center text-white md:mt-20 min-h-screen">
+    <div className="flex flex-col justify-center text-white md:mt-8 min-h-screen">
       <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold font-heading text-transparent bg-clip-text bg-gradient-to-r from-gradientFrom to-gradientTo">
         Jon Are
       </h1>

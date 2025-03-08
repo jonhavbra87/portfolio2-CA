@@ -76,19 +76,15 @@ export default function LandingPage() {
 
   // Mobil-versjon av siden
   const MobileView = () => (
-    <div className="w-full bg-background min-h-screen mt-20">
+    <div className="w-11/12 bg-background min-h-screen mt-4 mx-auto">
       {/* AboutMe section */}
-      <div className="px-4 py-8 text-center">
+      <div className="py-4 text-center border-b border-gray-700 ">
         <AboutMe />
       </div>
       
-
-{/* Projects section */}
-<div className="px-4 py-8">
-  <h2 className="text-2xl font-bold text-white mb-8 text-center">My Projects</h2>
   {/* Projects section */}
 <div className="px-4 py-8">
-  <h2 className="text-2xl font-bold text-white mb-8 text-center">My Projects</h2>
+  <h2 className="text-2xl font-bold text-white text-center mb-4">My Projects</h2>
   <div className="space-y-16">
     {projects.map((project) => {
       // Fargekartlegging for knapper basert på border-farge
@@ -167,8 +163,6 @@ export default function LandingPage() {
     })}
   </div>
 </div>
-
-      </div>
       
       {/* Contact section */}
       <div className="px-4 py-8 pb-20">
@@ -208,17 +202,17 @@ export default function LandingPage() {
             <div className="grid grid-cols-12 gap-8">
               <div className="col-span-4 lg:col-span-4 xl:col-span-5">
                 <div className="w-full max-w-xs">
-                  <div className="bg-background rounded-lg p-5 lg:p-6 shadow-xl overflow-y-auto max-h-[90vh]">
+                  <div className="bg-background rounded-lg p-5 lg:p-6 shadow-xl overflow-y-auto min-h-screen">
                     <div className="flex flex-col items-center">
                       <img
                         src={Portrait || 'https://placehold.co/400'}
                         alt="Jon Are"
-                        className="w-full rounded-lg object-cover mb-4 shadow-lg"
+                        className="w-full rounded-md object-cover mb-4 shadow-lg"
                       />
                       <h1 className="text-2xl lg:text-3xl font-extrabold mb-3 text-white">
                         Jon Are
                       </h1>
-                      <p className="text-transparent bg-clip-text bg-gradient-to-r from-gradientFrom to-gradientTo font-semibold font-ingress text-center text-base lg:text-lg italic mb-4">
+                      <p className="text-transparent bg-clip-text bg-gradient-to-r from-gradientFrom to-gradientTo font-medium font-ingress text-center text-base lg:text-lg italic mb-4">
                         Let's create something amazing together!
                       </p>
                       
@@ -250,13 +244,13 @@ export default function LandingPage() {
                         <div className="flex flex-col gap-6 border-t border-gray-700 ">
                           {projects.map((project) => (
                             <div key={project.id} className="flex flex-col gap-2">
-                              <h3 className="text-white text-md font-bold">{project.title}</h3>
+                              <h3 className="text-white text-base font-bold">{project.title}</h3>
                               <div className="flex flex-col gap-2 pl-2">
                                 <a
                                   href={project.liveLink}
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="flex items-center gap-2 text-white hover:text-gradientTo text-base"
+                                  className="flex items-center gap-2 text-white hover:text-gradientTo text-sm"
                                 >
                                   <ExternalLink className="text-gradientTo w-3 h-3" />
                                   <span className="underline">Live Demo</span>
@@ -265,7 +259,7 @@ export default function LandingPage() {
                                   href={project.githubLink}
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="flex items-center gap-2 text-white hover:text-gradientTo text-base"
+                                  className="flex items-center gap-2 text-white hover:text-gradientFrom text-sm"
                                 >
                                   <Github className="text-gradientTo w-3 h-3" />
                                   <span className="underline">GitHub Repository</span>

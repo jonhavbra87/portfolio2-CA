@@ -9,8 +9,8 @@ function Header() {
   };
 
   return (
-    <header className="bg-background w-full flex items-center fixed h-20 z-50 border-b-2 border-gray-800">
-      <div className="w-full max-w-7xl mx-auto flex justify-between items-center h-full">
+    <header className="bg-background w-full flex items-center static h-20 z-50 border-b-2 border-gray-800">
+      <div className="w-11/12 max-w-7xl mx-auto flex justify-between items-center h-full">
         <div className="flex items-center justify-start ">
           <img
             onClick={ScrollTop}
