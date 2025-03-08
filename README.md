@@ -1,6 +1,6 @@
 # Project Exam 2
 
-![Portfolio](assets/portfolio.webp)
+![Portfolio](src/assets/portfolio.webp)
 
 ## 🎯 **Project Goal**
 
