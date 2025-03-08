@@ -1,4 +1,4 @@
-# Project Exam 2
+# Portfolio 2
 
 ![Portfolio](src/assets/portfolio.webp)
 
