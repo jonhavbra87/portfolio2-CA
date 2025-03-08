@@ -48,7 +48,7 @@ To apply knowledge of JavaScript techniques to implement the front-end functiona
 - **Bootstrap** for responsive design and UI components.
 - **HTML** & **Regex** for validation.
 - **LocalStorage** for storing login & registration information.
-- **API**: The site interacts with the [Noroff Holidaze API](https://docs.noroff.dev/docs/v1) to manage items data.
+- **API**: The site interacts with the [Noroff Social API](https://docs.noroff.dev/docs/v1/social/) to manage items data.
 
 ---
 
