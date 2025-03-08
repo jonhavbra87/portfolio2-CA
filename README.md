@@ -29,7 +29,7 @@ A comprehensive accommodation booking platform that allows users to browse venue
 - **Yup** & **React-Hook-Form** for validation.
 - **Zustand** for storing login & registration information.
 - **Vite** as the build tool and development server for fast module-based development.
-- **API**: The site interacts with the [Noroff Holidaze API](https://docs.noroff.dev/docs/v2) to manage items data.
+- **API**: The site interacts with the [Noroff Holidaze API](https://docs.noroff.dev/docs/v2/holidaze/bookings) to manage items data.
 
 ### Semester Project 2
 The objective of this project is to apply the front-end development skills acquired over the past three semesters by building an auction website. The website will allow users to bid on items, as well as create and manage their own listings.
@@ -38,7 +38,7 @@ The objective of this project is to apply the front-end development skills acqui
 - **Bootstrap** for responsive design and UI components.
 - **Vite** as the build tool and development server for fast module-based development.
 - **Figma** for design and prototyping
-- **API**: The site interacts with the [Noroff Auction API](https://docs.noroff.dev/docs/v2) to manage listing data and bids.
+- **API**: The site interacts with the [Noroff Auction API](hhttps://docs.noroff.dev/docs/v2/auction-house/listings) to manage listing data and bids.
 - **Jest** for unit testing.
 
 ### Javascript Frameworks CA
@@ -48,7 +48,7 @@ To apply knowledge of JavaScript techniques to implement the front-end functiona
 - **Bootstrap** for responsive design and UI components.
 - **HTML** & **Regex** for validation.
 - **LocalStorage** for storing login & registration information.
-- **API**: The site interacts with the [Noroff Social API](https://docs.noroff.dev/docs/v1/social/) to manage items data.
+- **API**: The site interacts with the [Noroff Social API](https://docs.noroff.dev/docs/v1/social/authentication) to manage items data.
 
 ---
 
