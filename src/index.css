@@ -12,13 +12,6 @@ body,
   -ms-overflow-style: none; /* Internet Explorer and Edge */
 }
 
-/* Hide scrollbar for Chrome, Safari and Opera */
-html::-webkit-scrollbar,
-body::-webkit-scrollbar,
-#root::-webkit-scrollbar {
-  display: none;
-}
-
 body {
   font-family:
     'Inter',
@@ -31,9 +24,7 @@ body {
   padding: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(
-    --background-color
-  ); /* Sørger for riktig bakgrunnsfarge */
+  background-color: #000000;
 }
 
 /* Fix warning about text adjustment */
@@ -49,16 +40,9 @@ html {
   box-sizing: border-box;
 }
 
-/* Touch device optimizations for parallax */
-@media (hover: none) {
-  .parallax-container {
-    transform: none !important;
-  }
-}
-
 /* Ensure parallax works properly on all devices */
 #root {
-  overflow-y: auto; /* Endret fra 'scroll' til 'auto' for bedre mobil-ytelse */
+  overflow-y: auto;
   overflow-x: hidden;
   scrollbar-width: none;
   -ms-overflow-style: none;

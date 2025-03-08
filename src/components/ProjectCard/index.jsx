@@ -1,5 +1,4 @@
 import React from 'react';
-import { ExternalLink, GitForkIcon, Github } from 'lucide-react';
 
 const ProjectCard = ({
   title,

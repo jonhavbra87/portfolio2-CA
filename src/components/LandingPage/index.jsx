@@ -6,25 +6,18 @@ import React, { useState, useEffect } from 'react';
 import AboutMe from '../AboutMe';
 import ProjectCard from '../ProjectCard';
 import ContactForm from '../ContactForm';
-import { GitFork, Mail, ExternalLink, Github } from 'lucide-react';
+import { Mail, ExternalLink } from 'lucide-react';
+import { FaGithub } from 'react-icons/fa6';
 
 export default function LandingPage() {
-  // State for å holde styr på om enheten er mobil
+// Check if the screen is mobile or desktop
   const [isMobile, setIsMobile] = useState(false);
-
-  // Sjekk skjermstørrelsen når komponenten lastes og når vinduet endres
   useEffect(() => {
     const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768); // Under 768px regnes som mobil
+      setIsMobile(window.innerWidth < 768);
     };
-    
-    // Sjekk når komponenten lastes
     checkMobile();
-    
-    // Legg til en event listener for å sjekke når vinduet endrer størrelse
     window.addEventListener('resize', checkMobile);
-    
-    // Cleanup
     return () => {
       window.removeEventListener('resize', checkMobile);
     };
@@ -83,11 +76,10 @@ export default function LandingPage() {
       </div>
       
   {/* Projects section */}
-<div className="px-4 py-8">
-  <h2 className="text-2xl font-bold text-white text-center mb-4">My Projects</h2>
+  <div className="px-4 py-8" role="region" aria-labelledby="projects-heading">
+  <h2 id="projects-heading" className="text-2xl font-bold text-white text-center mb-4">My Projects</h2>
   <div className="space-y-16">
     {projects.map((project) => {
-      // Fargekartlegging for knapper basert på border-farge
       let buttonBgColor;
       
       if (project.borderColor.includes('purple')) {
@@ -99,34 +91,29 @@ export default function LandingPage() {
       } else {
         buttonBgColor = 'bg-gradientTo';
       }
-      
-      // Hent border-klasse uten "border-" prefikset
+
       const borderColorClass = project.borderColor;
       
       return (
-        <div key={project.id} className="relative">
-          {/* Ytre container med skygge og border */}
+        <div key={project.id} className="relative" role="article" aria-labelledby={`project-title-${project.id}`}>
           <div className={`w-full bg-background rounded-lg shadow-lg overflow-hidden ${borderColorClass} border-l-4`}>
-            {/* Bilde-seksjonen - flyttet ut av ProjectCard */}
             {project.imageSrc && (
               <div className="overflow-hidden">
                 <img
                   src={project.imageSrc}
-                  alt={project.title}
+                  alt={`Screenshot of ${project.title} project`}
                   className="w-full h-48 md:h-56 lg:h-64 object-cover object-center transform hover:scale-105 transition-transform duration-500"
                 />
               </div>
             )}
-            
-            {/* Innholdsseksjonen */}
             <div className="p-4 sm:p-6 lg:p-8">
-              <h3 className="text-xl sm:text-2xl font-bold font-heading mb-3 md:mb-4 text-white">
+              <h3 id={`project-title-${project.id}`} className="text-xl sm:text-2xl font-bold font-heading mb-3 md:mb-4 text-white">
                 {project.title}
               </h3>
               <p className="mb-4 md:mb-6 font-base font-body text-gray-200 text-base">
                 {project.description}
               </p>
-              <div className="flex flex-wrap gap-2 mb-6">
+              <div className="flex flex-wrap gap-2 mb-6" aria-label="Technologies used">
                 {project.features.map((feature, index) => (
                   <span
                     key={index}
@@ -136,14 +123,13 @@ export default function LandingPage() {
                   </span>
                 ))}
               </div>
-              
-              {/* Knapper integrert i samme innholdsblokk */}
               <div className="flex flex-row gap-4 mt-8">
                 <a
                   href={project.liveLink}
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`w-1/2 px-4 py-3 ${buttonBgColor} text-white text-base font-bold font-button rounded-md hover:bg-opacity-80 transition-all duration-200 text-center`}
+                  aria-label={`View live demo of ${project.title}`}
                 >
                   Live Demo
                 </a>
@@ -152,6 +138,7 @@ export default function LandingPage() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`w-1/2 px-4 py-3 ${buttonBgColor} text-white text-base font-bold font-button rounded-md hover:bg-opacity-80 transition-all duration-200 text-center`}
+                  aria-label={`View source code for ${project.title} on GitHub`}
                 >
                   GitHub
                 </a>
@@ -163,16 +150,15 @@ export default function LandingPage() {
     })}
   </div>
 </div>
-      
       {/* Contact section */}
-      <div className="px-4 py-8 pb-64">
-        <div className="bg-background text-white rounded-lg p-6 shadow-xl text-center">
-          <h2 className="text-2xl font-bold mb-6 text-gray-500">
-            Contact Me
-          </h2>
-          <ContactForm />
-        </div>
-      </div>
+      <div className="px-4 py-8 mb-4" role="region" aria-labelledby="contact-heading">
+  <div className="bg-background text-white rounded-lg p-6 shadow-xl text-center">
+    <h2 id="contact-heading" className="text-2xl font-bold text-gray-500">
+      Contact Me
+    </h2>
+    <ContactForm />
+  </div>
+</div>
     </div>
   );
 
@@ -192,7 +178,6 @@ export default function LandingPage() {
             </div>
           </div>
         </ParallaxLayer>
-
         {/* Profile sidebar */}
         <ParallaxLayer
           sticky={{ start: 1, end: 3 }}
@@ -215,7 +200,6 @@ export default function LandingPage() {
                       <p className="text-transparent bg-clip-text bg-gradient-to-r from-gradientFrom to-gradientTo font-medium font-ingress text-center text-base lg:text-lg italic mb-4">
                         Let's create something amazing together!
                       </p>
-                      
                       {/* Links */}
                       <div className="flex flex-col align-middle gap-3 font-body text-xs font-extrabold text-white mb-6">
                         <div className="flex flex-row gap-2 items-center">
@@ -228,7 +212,7 @@ export default function LandingPage() {
                           </a>
                         </div>
                         <div className="flex flex-row gap-2 items-center">
-                          <GitFork className="text-gradientTo w-4 h-4" />
+                          <FaGithub className="text-gradientTo w-4 h-4" />
                           <a
                             href="https://github.com/jonhavbra87"
                             className="font-body underline hover:text-gradientFrom text-sm"
@@ -240,35 +224,36 @@ export default function LandingPage() {
                       
                       {/* Projects Links */}
                       <div className="w-full">
- 
-                        <div className="flex flex-col gap-6 border-t border-gray-700 ">
-                          {projects.map((project) => (
-                            <div key={project.id} className="flex flex-col gap-2">
-                              <h3 className="text-white text-base font-bold">{project.title}</h3>
-                              <div className="flex flex-col gap-2 pl-2">
-                                <a
-                                  href={project.liveLink}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className="flex items-center gap-2 text-white hover:text-gradientTo text-sm"
-                                >
-                                  <ExternalLink className="text-gradientTo w-3 h-3" />
-                                  <span className="underline">Live Demo</span>
-                                </a>
-                                <a
-                                  href={project.githubLink}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className="flex items-center gap-2 text-white hover:text-gradientFrom text-sm"
-                                >
-                                  <Github className="text-gradientTo w-3 h-3" />
-                                  <span className="underline">GitHub Repository</span>
-                                </a>
-                              </div>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
+  <div className="flex flex-col gap-6 border-t border-gray-700" role="navigation" aria-label="Project links">
+    {projects.map((project) => (
+      <div key={project.id} className="flex flex-col gap-2">
+        <h3 className="text-white text-base font-bold">{project.title}</h3>
+        <div className="flex flex-col gap-2 pl-2">
+          <a
+            href={project.liveLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 text-white hover:text-gradientTo text-sm"
+            aria-label={`View live demo of ${project.title}`}
+          >
+            <ExternalLink className="text-gradientTo w-3 h-3" aria-hidden="true" />
+            <span className="underline">Live Demo</span>
+          </a>
+          <a
+            href={project.githubLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 text-white hover:text-gradientFrom text-sm"
+            aria-label={`View source code for ${project.title} on GitHub`}
+          >
+            <FaGithub className="text-gradientTo w-3 h-3" aria-hidden="true" />
+            <span className="underline">GitHub Repository</span>
+          </a>
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
                     </div>
                   </div>
                 </div>
@@ -276,7 +261,6 @@ export default function LandingPage() {
             </div>
           </div>
         </ParallaxLayer>
-
         {/* Project cards */}
         {projects.map((project) => (
           <ParallaxLayer
@@ -306,7 +290,6 @@ export default function LandingPage() {
             </div>
           </ParallaxLayer>
         ))}
-
         {/* Contact section */}
         <ParallaxLayer
           offset={4}
@@ -327,6 +310,5 @@ export default function LandingPage() {
     </div>
   );
 
-  // Bruk ternary operator for å velge mellom mobil- og desktop-visning
   return isMobile ? <MobileView /> : <DesktopView />;
 }
