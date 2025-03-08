@@ -78,7 +78,7 @@ export default function LandingPage() {
   const MobileView = () => (
     <div className="w-11/12 bg-background min-h-screen mt-4 mx-auto">
       {/* AboutMe section */}
-      <div className="py-4 text-center border-b border-gray-700 ">
+      <div className="py-4 text-center border-b border-gray-700">
         <AboutMe />
       </div>
       
@@ -165,7 +165,7 @@ export default function LandingPage() {
 </div>
       
       {/* Contact section */}
-      <div className="px-4 py-8 pb-20">
+      <div className="px-4 py-8 pb-64">
         <div className="bg-background text-white rounded-lg p-6 shadow-xl text-center">
           <h2 className="text-2xl font-bold mb-6 text-gray-500">
             Contact Me
@@ -187,7 +187,7 @@ export default function LandingPage() {
           style={{ ...alignCenter, justifyContent: 'center'}}
         >
           <div className="w-full max-w-7xl mx-auto px-8">
-            <div className="flex flex-col items-center justify-center text-center min-h-screen">
+          <div className="flex flex-col items-center justify-center text-center min-h-screen mt-24">
               <AboutMe />
             </div>
           </div>

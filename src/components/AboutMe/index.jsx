@@ -1,16 +1,15 @@
 // src/components/AboutMe.jsx
 import React from 'react';
-import Portrait from '../../assets/jon_are.webp';
 import illustration from '../../assets/laptop.webp';
 import { GitFork, Mail } from 'lucide-react';
 
 const AboutMe = () => {
   return (
-    <div className="flex flex-col justify-center text-white md:mt-16 min-h-screen">
+    <div className="flex flex-col justify-center text-white">
       <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold font-heading text-transparent bg-clip-text bg-gradient-to-r from-gradientFrom to-gradientTo">
         Jon Are
       </h1>
-      <h2 className="text-xl md:text-2xl text-gray-200 font-medium font-heading mb-16">
+      <h2 className="text-xl md:text-2xl text-gray-200 font-medium font-heading">
         Front End Developer
       </h2>
       {/* Content Wrapper */}
