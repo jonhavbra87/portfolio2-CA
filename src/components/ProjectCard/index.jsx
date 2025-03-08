@@ -10,7 +10,7 @@ const ProjectCard = ({
 }) => {
   return (
     <div
-      className={`w-full bg-background rounded-lg shadow-lg transition-transform duration-300 hover:-translate-y-2 border-l-4 ${borderColor} overflow-hidden`}
+      className={`w-full bg-background rounded-lg shadow-lg border-l-4 ${borderColor} overflow-hidden`}
     >
       {imageSrc && (
         <div className="mb-4 overflow-hidden">

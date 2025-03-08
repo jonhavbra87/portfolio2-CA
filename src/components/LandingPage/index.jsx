@@ -76,33 +76,78 @@ export default function LandingPage() {
 
   // Mobil-versjon av siden
   const MobileView = () => (
-    <div className="w-full bg-background min-h-screen pt-20">
+    <div className="w-full bg-background min-h-screen mt-20">
       {/* AboutMe section */}
       <div className="px-4 py-8 text-center">
         <AboutMe />
       </div>
       
-      {/* Projects section */}
-      <div className="px-4 py-8">
-        <h2 className="text-2xl font-bold text-white mb-8 text-center">My Projects</h2>
-        <div className="space-y-16">
-          {projects.map((project) => (
-            <div key={project.id} className="relative">
-              <ProjectCard
-                title={project.title}
-                description={project.description}
-                features={project.features}
-                borderColor={project.borderColor}
-                imageSrc={project.imageSrc}
-              />
+
+{/* Projects section */}
+<div className="px-4 py-8">
+  <h2 className="text-2xl font-bold text-white mb-8 text-center">My Projects</h2>
+  {/* Projects section */}
+<div className="px-4 py-8">
+  <h2 className="text-2xl font-bold text-white mb-8 text-center">My Projects</h2>
+  <div className="space-y-16">
+    {projects.map((project) => {
+      // Fargekartlegging for knapper basert på border-farge
+      let buttonBgColor;
+      
+      if (project.borderColor.includes('purple')) {
+        buttonBgColor = 'bg-purple-500';
+      } else if (project.borderColor.includes('gray')) {
+        buttonBgColor = 'bg-gray-500';
+      } else if (project.borderColor.includes('yellow')) {
+        buttonBgColor = 'bg-yellow-500';
+      } else {
+        buttonBgColor = 'bg-gradientTo';
+      }
+      
+      // Hent border-klasse uten "border-" prefikset
+      const borderColorClass = project.borderColor;
+      
+      return (
+        <div key={project.id} className="relative">
+          {/* Ytre container med skygge og border */}
+          <div className={`w-full bg-background rounded-lg shadow-lg overflow-hidden ${borderColorClass} border-l-4`}>
+            {/* Bilde-seksjonen - flyttet ut av ProjectCard */}
+            {project.imageSrc && (
+              <div className="overflow-hidden">
+                <img
+                  src={project.imageSrc}
+                  alt={project.title}
+                  className="w-full h-48 md:h-56 lg:h-64 object-cover object-center transform hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+            )}
+            
+            {/* Innholdsseksjonen */}
+            <div className="p-4 sm:p-6 lg:p-8">
+              <h3 className="text-xl sm:text-2xl font-bold font-heading mb-3 md:mb-4 text-white">
+                {project.title}
+              </h3>
+              <p className="mb-4 md:mb-6 font-base font-body text-gray-200 text-base">
+                {project.description}
+              </p>
+              <div className="flex flex-wrap gap-2 mb-6">
+                {project.features.map((feature, index) => (
+                  <span
+                    key={index}
+                    className="bg-gray-500 text-white px-2 py-1 sm:px-3 sm:py-1.5 rounded-md text-sm font-semibold font-body"
+                  >
+                    {feature}
+                  </span>
+                ))}
+              </div>
               
-              {/* Legg til lenkene under kortet på mobil */}
-              <div className="mt-4 flex flex-col sm:flex-row gap-4">
+              {/* Knapper integrert i samme innholdsblokk */}
+              <div className="flex flex-row gap-4 mt-8">
                 <a
                   href={project.liveLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-1/3 sm:w-auto px-4 py-3 bg-gradientTo text-white text-base font-bold font-button rounded-md hover:bg-opacity-60 transition-all duration-200 text-center"
+                  className={`w-1/2 px-4 py-3 ${buttonBgColor} text-white text-base font-bold font-button rounded-md hover:bg-opacity-80 transition-all duration-200 text-center`}
                 >
                   Live Demo
                 </a>
@@ -110,14 +155,19 @@ export default function LandingPage() {
                   href={project.githubLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-1/3 sm:w-auto px-4 py-3 bg-gradientTo text-white text-base font-bold font-button rounded-md hover:bg-opacity-60 transition-all duration-200 text-center"
+                  className={`w-1/2 px-4 py-3 ${buttonBgColor} text-white text-base font-bold font-button rounded-md hover:bg-opacity-80 transition-all duration-200 text-center`}
                 >
                   GitHub
                 </a>
               </div>
             </div>
-          ))}
+          </div>
         </div>
+      );
+    })}
+  </div>
+</div>
+
       </div>
       
       {/* Contact section */}
@@ -172,7 +222,7 @@ export default function LandingPage() {
                         Let's create something amazing together!
                       </p>
                       
-                      {/* Kontakt lenker */}
+                      {/* Links */}
                       <div className="flex flex-col align-middle gap-3 font-body text-xs font-extrabold text-white mb-6">
                         <div className="flex flex-row gap-2 items-center">
                           <Mail className="text-gradientTo w-4 h-4" />
@@ -194,19 +244,19 @@ export default function LandingPage() {
                         </div>
                       </div>
                       
-                      {/* Prosjekt lenker */}
+                      {/* Projects Links */}
                       <div className="w-full">
-                        <h2 className="text-white text-lg font-bold mb-3 border-b border-gray-700 pb-2">Prosjekter</h2>
-                        <div className="flex flex-col gap-6">
+ 
+                        <div className="flex flex-col gap-6 border-t border-gray-700 ">
                           {projects.map((project) => (
                             <div key={project.id} className="flex flex-col gap-2">
-                              <h3 className="text-white text-sm font-bold">{project.title}</h3>
+                              <h3 className="text-white text-md font-bold">{project.title}</h3>
                               <div className="flex flex-col gap-2 pl-2">
                                 <a
                                   href={project.liveLink}
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="flex items-center gap-2 text-white hover:text-gradientTo text-xs"
+                                  className="flex items-center gap-2 text-white hover:text-gradientTo text-base"
                                 >
                                   <ExternalLink className="text-gradientTo w-3 h-3" />
                                   <span className="underline">Live Demo</span>
@@ -215,7 +265,7 @@ export default function LandingPage() {
                                   href={project.githubLink}
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="flex items-center gap-2 text-white hover:text-gradientTo text-xs"
+                                  className="flex items-center gap-2 text-white hover:text-gradientTo text-base"
                                 >
                                   <Github className="text-gradientTo w-3 h-3" />
                                   <span className="underline">GitHub Repository</span>
